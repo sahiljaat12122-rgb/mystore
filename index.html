@@ -1,29 +1,96 @@
-<h1>My Online Store</h1>
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My Product Store</title>
+<style>
+body{
+font-family: Arial;
+background:black;
+color:white;
+text-align:center;
+}
 
-<div class="products">
+.container{
+width:80%;
+margin:auto;
+}
 
-<div class="product">
-<img src="https://via.placeholder.com/200">
-<h2>T-Shirt</h2>
-<p>Price: ₹499</p>
-<button>Buy Now</button>
+input{
+padding:10px;
+margin:5px;
+}
+
+button{
+padding:10px 20px;
+background:orange;
+border:none;
+cursor:pointer;
+}
+
+.products{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+margin-top:20px;
+}
+
+.card{
+background:#111;
+border:1px solid #444;
+padding:15px;
+margin:10px;
+width:200px;
+border-radius:10px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>My Product Store</h1>
+
+<div class="container">
+
+<h2>Add Product</h2>
+
+<input type="text" id="name" placeholder="Product Name">
+<input type="number" id="price" placeholder="Price">
+<input type="text" id="image" placeholder="Image URL">
+
+<br>
+<button onclick="addProduct()">Add Product</button>
+
+<div class="products" id="productList"></div>
+
 </div>
 
-<div class="product">
-<img src="https://via.placeholder.com/200">
-<h2>Shoes</h2>
-<p>Price: ₹999</p>
-<button>Buy Now</button>
-</div>
+<script>
 
-<div class="product">
-<img src="https://via.placeholder.com/200">
-<h2>Watch</h2>
-<p>Price: ₹1499</p>
-<button>Buy Now</button>
-</div>
+function addProduct(){
 
+let name=document.getElementById("name").value;
+let price=document.getElementById("price").value;
+let image=document.getElementById("image").value;
+
+let card=`
+<div class="card">
+<img src="${image}" width="150">
+<h3>${name}</h3>
+<p>₹${price}</p>
 </div>
+`;
+
+document.getElementById("productList").innerHTML+=card;
+
+}
+
+</script>
+
+</body>
+</html>
+```
 
 
 
