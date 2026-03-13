@@ -1,1 +1,27 @@
+body{
+font-family: Arial;
+text-align:center;
+background:#f2f2f2;
+}
+
+.products{
+display:flex;
+justify-content:center;
+gap:30px;
+}
+
+.product{
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 0 10px gray;
+}
+
+button{
+background:black;
+color:white;
+padding:10px 20px;
+border:none;
+cursor:pointer;
+}
 
