@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - ShopKaro</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <h2><i class="fas fa-cog"></i> Admin Panel</h2>
+            </div>
+            <nav>
+                <a href="#dashboard" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                <a href="#products"><i class="fas fa-box"></i> Products</a>
+                <a href="#orders"><i class="fas fa-shopping-cart"></i> Orders</a>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <header class="admin-header">
+                <h1>Admin Dashboard</h1>
+                <div class="user-info">
+                    <i class="fas fa-user"></i>
+                    <span>Admin</span>
+                </div>
+            </header>
+
+            <!-- Dashboard Stats -->
+            <section id="dashboard" class="dashboard active">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Total Products</h3>
+                        <div class="stat-number" id="totalProducts">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Total Orders</h3>
+                        <div class="stat-number" id="totalOrders">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Total Revenue</h3>
+                        <div class="stat-number" id="totalRevenue">₹0</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Products Section -->
+            <section id="products" class="products-section">
+                <div class="section-header">
+                    <h2>Manage Products</h2>
+                    <button class="add-btn" onclick="openAddProductModal()">
+                        <i class="fas fa-plus"></i> Add New Product
+                    </button>
+                </div>
+                
+                <div class="products-table">
+                    <table id="productsTable">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Category</th>
+                                <th>Stock</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="productsTableBody">
+                            <!-- Products will load here -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Add Product Modal -->
+            <div class="modal" id="addProductModal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Add New Product</h3>
+                        <span class="close" onclick="closeAddProductModal()">&times;</span>
+                    </div>
+                    <form id="productForm">
+                        <div class="form-group">
+                            <label>Product Name</label>
+                            <input type="text" id="productName" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Price (₹)</label>
+                            <input type="number" id="productPrice" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Original Price (₹)</label>
+                            <input type="number" id="productOriginalPrice">
+                        </div>
+                        <div class="form-group">
+                            <label>Image URL</label>
+                            <input type="url" id="productImage" placeholder="https://example.com/image.jpg" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Category</label>
+                            <select id="productCategory" required>
+                                <option value="">Select Category</option>
+                                <option value="Electronics">Electronics</option>
+                                <option value="Fashion">Fashion</option>
+                                <option value="Home & Kitchen">Home & Kitchen</option>
+                                <option value="Sports">Sports</option>
+                                <option value="Books">Books</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea id="productDescription" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Stock</label>
+                            <input type="number" id="productStock" value="10" min="0">
+                        </div>
+                        <button type="submit" class="submit-btn">Add Product</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
